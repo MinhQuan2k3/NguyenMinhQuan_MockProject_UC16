@@ -5,7 +5,7 @@
 | Mục | Giá trị |
 |---|---|
 | Hệ thống test | IMS (Interview Management System) |
-| URL | http://ec2-15-134-127-135.ap-southeast-2.compute.amazonaws.com/interviews?page=0&size=10&sort=interviewStatus,-scheduleTimeTo,-lastModifiedDate&searchKey=&status=&department=&role=ROLE_ADMIN&action= |
+| URL | http://ec2-15-134-127-135.ap-southeast-2.compute.amazonaws.com/login |
 | Account dùng để test | Account của cả 4 roles |
 | Ngày giờ chạy | 10/08/2026 |
 | Người thực thi | Nguyễn Minh Quân |
