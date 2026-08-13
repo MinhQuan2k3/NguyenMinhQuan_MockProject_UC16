@@ -33,8 +33,8 @@
 Tổng TC thiết kế : 14
 Đã thực thi : 2
 Pass : 0
-Fail : 2 (TC20-02)
-Blocked : 12 (TC20-03 đến TC20-14)
+Fail : 2 ([UC20]-TC-001, [UC20]-TC-002)
+Blocked : 12 ([UC20]-TC-003 đến [UC20]-TC-014)
 Chưa chạy : 0
 
 Bug tìm được : 1 (Critical: **1** [BUG-001] | Major: 0 | Minor: 0)
