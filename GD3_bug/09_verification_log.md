@@ -1,4 +1,4 @@
-# kết quả Verify — UC16 View Interview Schedule
+# Kết quả Verify — UC16 View Interview Schedule
 
 ## Bug 1 — Thiếu cột Interviewer/Result
 
