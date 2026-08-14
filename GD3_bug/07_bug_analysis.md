@@ -1,4 +1,4 @@
-# Bug001
+# BUG-001
 
 Đã đối chiếu Bug Description + 3 screenshot + UC16 + bộ Test Case. Theo yêu cầu, tôi chỉ thực hiện GIAI ĐOẠN A, chưa đưa bất kỳ giả thuyết nguyên nhân gốc nào.
 
@@ -311,7 +311,7 @@ Root Cause: CHƯA VERIFY — không được kết luận ở Giai đoạn A.
 
 ---
 
-# Bug002
+# BUG-002
 
 Đã đối chiếu screenshot_04, UC16 và bộ Test Case. Theo yêu cầu, dưới đây chỉ là GIAI ĐOẠN A, chưa đưa giả thuyết nguyên nhân gốc.
 
@@ -569,7 +569,7 @@ Hiện tại chỉ đủ bằng chứng để kết luận message actual không
 
 ---
 
-# Bug003
+# BUG-003
 
 GIAI ĐOẠN A — Phân tích Bug: Thiếu combo-box Interviewer
 1. Timeline sự kiện
@@ -757,7 +757,7 @@ Evidence tiếp theo có giá trị nhất để điều tra nguyên nhân là D
 
 ---
 
-# Bug004
+# BUG-004
 
 GIAI ĐOẠN A — Phân tích bug: Status dropdown sai giá trị
 1. Tóm tắt hiện tượng
@@ -984,7 +984,7 @@ Kết luận Giai đoạn A: Bug được xác nhận ở behavior: New bị tha
 
 ---
 
-# Bug005
+# BUG-005
 
 GIAI ĐOẠN A — Phân tích bug: Icon "View" không hiển thị
 1. Timeline sự kiện
