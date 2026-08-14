@@ -1,0 +1,403 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: UC16-GD4
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:1.0.3@cc37544750d72ca3782bdaa81ab0e2facbf5bb74105a169a7ff974a27c6a5f29
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786670503999-source-1786672521975-target
+      source: '1786670503999'
+      sourceHandle: source
+      target: '1786672521975'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1786672521975--1786672769432-target
+      source: '1786672521975'
+      sourceHandle: ''
+      target: '1786672769432'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1786672769432-source-1786672883934-target
+      source: '1786672769432'
+      sourceHandle: source
+      target: '1786672883934'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - default: '22'
+          hint: ''
+          label: total_tc
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: total_tc
+        - default: '20'
+          hint: ''
+          label: executed
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: executed
+        - default: '7'
+          hint: ''
+          label: passed
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: passed
+        - default: '6'
+          hint: ''
+          label: failed
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: failed
+        - default: '7'
+          hint: ''
+          label: blocked
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: blocked
+        - default: '0'
+          hint: ''
+          label: bug_critical
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: bug_critical
+        - default: '4'
+          hint: ''
+          label: bug_major
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: bug_major
+        - default: '2'
+          hint: ''
+          label: bug_minor
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: bug_minor
+        - default: 'failed_list =
+
+            TC16-01 – FAIL – BUG-001 – Thiếu cột Interviewer; Result bị gộp vào Status.
+
+            TC16-04 – FAIL – BUG-002 – Sai message ME008.
+
+            TC16-16 – FAIL – BUG-005 – Không có icon View.
+
+            TC16-17 – FAIL – BUG-001 – Không có cột Result độc lập/N/A.
+
+            TC16-19 – FAIL – BUG-006 – Sai format ngày DD-MM-YYYY.
+
+            TC16-22 – FAIL – BUG-001 – Không có cột Result khi Status = Cancelled.'
+          hint: ''
+          label: failed_list
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: failed_list
+        - default: 'blocked_reason =
+
+            TC16-05/06: thiếu Interviewer filter/column.
+
+            TC16-07: thiếu Status "New".
+
+            TC16-09: không có quyền/công cụ truy cập API.
+
+            TC16-18: không có quyền tạo Result bất thường.
+
+            TC16-20: không có quyền tạo Schedule sai định dạng.
+
+            TC16-21: thiếu Interviewer nên không test được đầy đủ Search + Interviewer
+            + Status.'
+          hint: ''
+          label: blocked_reason
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: blocked_reason
+        - default: 'exit_criteria =
+
+            Không còn Critical/Major chưa xử lý;
+
+            P0/P1 phải Pass hoặc có waiver;
+
+            Blocked phải được re-test;
+
+            TC16-14/15 phải được BA xác nhận;
+
+            mọi số liệu phải đối chiếu execution log;
+
+            AI chỉ recommendation, Human quyết định GO/NO-GO.'
+          hint: ''
+          label: exit_criteria
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: exit_criteria
+        - default: 'context =
+
+            UC16 – View Interview Schedule.
+
+            Manual execution ngày 11/08/2026 trên IMS.
+
+            20/22 TC đã thực thi: 7 Pass, 6 Fail, 7 Blocked.
+
+            2 TC Pending chờ BA.
+
+            6 bug: 4 Major, 2 Minor.
+
+            Các vấn đề chính nằm ở UI/Frontend.
+
+            AI phải sử dụng đúng số liệu đầu vào, không được tự bịa hoặc thay đổi
+            số liệu.
+
+            GO/NO-GO do Human Reviewer quyết định.'
+          hint: ''
+          label: context
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: context
+      height: 394
+      id: '1786670503999'
+      position:
+        x: 83
+        y: 282.06584673606795
+      positionAbsolute:
+        x: 83
+        y: 282.06584673606795
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 1500
+            temperature: 0.2
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: e465330c-bfcd-4237-ae7e-28208b15c0f7
+          role: system
+          text: "Bạn viết phần NHẬN XÉT cho Test Summary Report.\n\nRÀNG BUỘC TUYỆT\
+            \ ĐỐI:\n\n- KHÔNG viết bất kỳ CON SỐ nào trong output.\n- Nếu cần nhắc\
+            \ đến số liệu, dùng cách diễn đạt định tính:\n  \"phần lớn\", \"một số\
+            \ ít\", \"còn tồn đọng\", \"chưa đạt ngưỡng\".\n- KHÔNG tự tính toán bất\
+            \ cứ gì.\n- KHÔNG tự quyết GO/NO-GO. Nếu cần khuyến nghị, ghi rõ:\n\n\"\
+            ĐỀ XUẤT - chờ quyết định của người phụ trách\".\n\nCHỈ VIẾT 3 PHẦN:\n\n\
+            1. Nhận xét tổng quan về chất lượng\n2. Điểm đáng lo ngại nhất\n3. Rủi\
+            \ ro còn tồn đọng nếu phát hành\n\nNếu thiếu thông tin để nhận xét ->\
+            \ ghi \"[cần bổ sung]\"."
+        - id: 90118d9a-3b50-4d4e-87a9-9d2b675b98f8
+          role: user
+          text: 'Dữ liệu tham khảo (CHỈ để hiểu bối cảnh, KHÔNG chép số ra):
+
+
+            Test case fail:
+
+            {{#1786670503999.failed_list#}}
+
+
+            Lý do block:
+
+            {{#1786670503999.blocked_reason#}}
+
+
+            Tiêu chí thoát:
+
+            {{#1786670503999.exit_criteria#}}
+
+
+            Bối cảnh:
+
+            {{#1786670503999.context#}}
+
+            '
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786672521975'
+      position:
+        x: 389.4609271524756
+        y: 248.95875118189377
+      positionAbsolute:
+        x: 389.4609271524756
+        y: 248.95875118189377
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: "# TEST SUMMARY REPORT - UC16\r\n\r\n## 1. SO LIEU THUC THI\r\n\r\
+          \n| Chi so | Gia tri |\r\n|---|---|\r\n| Tong test case | {{ total_tc }}\
+          \ |\r\n| Da thuc thi | {{ executed }} |\r\n| Pass | {{ passed }} |\r\n|\
+          \ Fail | {{ failed }} |\r\n| Blocked | {{ blocked }} |\r\n\r\n## 2. TINH\
+          \ TRANG BUG\r\n\r\n| Muc do | So luong con mo |\r\n|---|---|\r\n| Critical\
+          \ | {{ bug_critical }} |\r\n| Major | {{ bug_major }} |\r\n| Minor | {{\
+          \ bug_minor }} |\r\n\r\n## 3. DANH SACH TEST CASE FAIL\r\n\r\n{{ failed_list\
+          \ }}\r\n\r\n## 4. TEST CASE BI BLOCK\r\n\r\n{{ blocked_reason }}\r\n\r\n\
+          ## 5. NHAN XET (AI viet)\r\n\r\n{{ llm_comment }}\r\n\r\n## 6. DANH GIA\
+          \ TIEU CHI THOAT\r\n\r\nTieu chi cua du an:\r\n\r\n{{ exit_criteria }}\r\
+          \n\r\n| Tieu chi | Muc tieu | Thuc te | Dat/Khong |\r\n|---|---|---|---|\r\
+          \n| | | | |\r\n\r\n> NGUOI REVIEW TU DIEN bang tren bang cach doi chieu\
+          \ so lieu muc 1-2.\r\n\r\n## 7. QUYET DINH\r\n\r\n- [ ] GO - dong y phat\
+          \ hanh\r\n- [ ] NO-GO - chua phat hanh\r\n- [ ] GO with conditions - phat\
+          \ hanh kem dieu kien\r\n\r\nLy do quyet dinh:\r\n\r\nNguoi quyet dinh:\r\
+          \nNgay:"
+        title: Template
+        type: template-transform
+        variables: []
+      height: 51
+      id: '1786672769432'
+      position:
+        x: 688.2633869442718
+        y: 189.27133396208893
+      positionAbsolute:
+        x: 688.2633869442718
+        y: 189.27133396208893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1786672769432'
+          - output
+          value_type: string
+          variable: report_file
+        selected: false
+        title: End
+        type: end
+      height: 88
+      id: '1786672883934'
+      position:
+        x: 1006.2510879852907
+        y: 128.51807000621622
+      positionAbsolute:
+        x: 1006.2510879852907
+        y: 128.51807000621622
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 29.389135473757733
+      y: 14.639889940781359
+      zoom: 0.9382211965006707
+  rag_pipeline_variables: []
