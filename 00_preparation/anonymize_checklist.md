@@ -7,7 +7,7 @@ Checklist đối chiếu trực tiếp với bảng quy tắc "Thành phần tro
 | 1 | Objective / Actor / Trigger / Pre-Post condition | Giữ nguyên | Có |
 | 2 | Activity Flow | Chuyển sang bảng: Step \| Actor \| Action \| Next | Có — Basic Flow đã tách đủ 4 cột |
 | 3 | Business Rules | Giữ nguyên (phần AI cần nhất) | Có |
-| 4 | Bảng Screen Components | Giữ nguyên | [x] Có |
+| 4 | Bảng Screen Components | Giữ nguyên | Có |
 | 5 | URL nội bộ | Thay bằng domain giả (app.example.local) | Có |
 | 6 | Ảnh mockup có logo | KHÔNG upload ảnh — mô tả bằng bảng component | Có — không có ảnh nào được nhúng |
 | 7 | Tên công ty / hệ thống | Đổi tên chung | Có — "IMS – HR System" |
