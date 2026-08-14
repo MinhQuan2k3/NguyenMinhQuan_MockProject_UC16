@@ -1,0 +1,1107 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#E0F2FE'
+  icon_type: emoji
+  mode: workflow
+  name: UC16_GD1
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:1.0.3@cc37544750d72ca3782bdaa81ab0e2facbf5bb74105a169a7ff974a27c6a5f29
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: agent
+      id: 1786347514076-source-1786371277953-target
+      selected: false
+      source: '1786347514076'
+      sourceHandle: source
+      target: '1786371277953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: llm
+      id: 1786371277953--1786415067809-target
+      selected: false
+      source: '1786371277953'
+      sourceHandle: source
+      target: '1786415067809'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1786415067809--1786422229110-target
+      selected: false
+      source: '1786415067809'
+      sourceHandle: source
+      target: '1786422229110'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1786422229110-true-1786434145355-target
+      selected: false
+      source: '1786422229110'
+      sourceHandle: 'true'
+      target: '1786434145355'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1786422229110-false-1786436728064-target
+      selected: false
+      source: '1786422229110'
+      sourceHandle: 'false'
+      target: '1786436728064'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1786436728064-source-1786435481625-target
+      selected: false
+      source: '1786436728064'
+      sourceHandle: source
+      target: '1786435481625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1786434145355--1786439985625-target
+      source: '1786434145355'
+      sourceHandle: source
+      target: '1786439985625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1786439985625-source-1786505361137-target
+      source: '1786439985625'
+      sourceHandle: source
+      target: '1786505361137'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1786505361137-source-1786505995447-target
+      source: '1786505361137'
+      sourceHandle: source
+      target: '1786505995447'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1786505995447-source-1786506667191-target
+      source: '1786505995447'
+      sourceHandle: source
+      target: '1786506667191'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: start
+        type: start
+        variables:
+        - default: '# UC16: View Interview Schedule
+
+
+            ## 3.16.1 Overview
+
+
+            | Field | Content |
+
+            |---|---|
+
+            | ID and Name | UC16: View Interview Schedule |
+
+            | Description | This use case allows user to view interview schedule list
+            |
+
+            | Actor | Role A, Role B, Role C, Role D |
+
+            | Trigger | User clicks "Interview" icon on the horizontal left menu bar
+            |
+
+            | Pre-condition | System is available |
+
+            | Post-condition | System shows interview schedule list |
+
+
+            ## 3.16.2 Flow of events
+
+
+            ### 3.16.2.1 Basic Flow
+
+
+            | Step | Actor | Action | Next |
+
+            |---|---|---|---|
+
+            | 1 | Role A / Role B / Role C / Role D | Clicks "Interview" on the horizontal
+            left menu bar | Step 2 |
+
+            | 2 | System | Shows interview schedule list | End |
+
+
+            ## 3.16.3 Mock-up Screen
+
+
+            - Pic.15 – Interview schedule list for Role B, Role C, Role A
+
+            - Pic.25 – Interview schedule list for Role D
+
+
+            URL (masked): `https://app.example.local/candidate-list`
+
+
+            Both screens share the same layout: Search box, Interviewer filter, Status
+            filter, Search button, result table (Title, Candidate Name, Interviewer,
+            Schedule, Result, Status, Job, Action), pagination.
+
+
+            ## 3.16.4 Screen Description
+
+
+            ### 3.16.4.1 Interview schedule list / Search section
+
+
+            | REF | Field Name | Control Type | Data Type | Description |
+
+            |---|---|---|---|---|
+
+            | 1 | Name of module | Label | N/A | Show the name of module "Interview
+            Schedule" |
+
+            | 2 | Name of sub-module | Label | N/A | Show the name of sub-module "Interview
+            Schedule list" |
+
+            | 3 | Search box | Textbox | Text | User input information in the search
+            box to search. Allow to search partial match on all columns in the result
+            table |
+
+            | 4 | Interviewer | Combo-box | Text | Allow to select an interviewer
+            to search. If blank, search all interviewer |
+
+            | 5 | Status | Combo-box | Text | Allow to select a status to search.
+            Default to all. List of Interview Schedule status: refer to BRL-16-02
+            |
+
+            | 6 | Search Button | Button | N/A | Click to start search. If no data
+            match, show ME008: "No items match with your search data. Please try again"
+            |
+
+            | 7 | Add | Icon | N/A | User clicks icon Add, system shows "Create job",
+            only available for Role B, Role A and Role C |
+
+
+            ### 3.16.4.2 Interview schedule list
+
+
+            | REF | Field Name | Control Type | Data Type | Description |
+
+            |---|---|---|---|---|
+
+            | 8 | Interview title | Label | Text | Interview title show the title
+            of schedule |
+
+            | 9 | Candidate | Label | Text | Display candidate''s name |
+
+            | 10 | Interviewer | Label | Text | Display interviewer''s name |
+
+            | 11 | Result | Label | Text | Display the interview result: Passed or
+            Failed. If no result yet, display as N/A |
+
+            | 12 | Schedule | Label | Date time | Display the Schedule time in format:
+            DD/MM/YYYY HH:MM – HH:MM |
+
+            | 13 | Status | Label | Text | Display the Interview Status: refer to
+            BRL-16-02 |
+
+            | 14 | Icon view | Button | Icon | When click, display view interview
+            details schedule screen. Available for all roles |
+
+            | 15 | Icon Edit | Button | Icon | When click, display Edit schedule screen.
+            Not available for Role D |
+
+            | 16 | Icon Submit result | Button | Icon | When click, display Submit
+            result screen for interviewer. Not available for Role B, Role A and Role
+            C |
+
+
+            ## 3.16.5 Business Rules
+
+
+            | Business Rule ID | Business Rule Description |
+
+            |---|---|
+
+            | BRL-16-01 | Only user with Role A, Role B and Role C can edit the interview.
+            Role D can view and submit result in schedule details. |
+
+            | BRL-16-02 | There''re 4 statuses of the Interview Schedule: <br> - New:
+            when the interview schedule is created <br> - Invited: When the reminder
+            is sent to Role D <br> - Interviewed: When Role D has submitted the result
+            for the interview schedule <br> - Cancelled: when the Interview is Cancelled
+            |
+
+
+            > Tài liệu này đã được xử lý theo đúng bảng quy tắc anonymize (xem `masking_glossary.md`):
+            Activity Flow chuyển thành bảng Step\|Actor\|Action\|Next, vai trò được
+            khái quát hoá thành Role A/B/C/D, URL nội bộ đã thay bằng domain giả,
+            không nhúng ảnh mockup hay dữ liệu mẫu chứa tên người thật.'
+          hint: ''
+          label: uc_document
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: uc_document
+        - default: UC16
+          hint: ''
+          label: uc_id
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: uc_id
+        - default: '# Test Case Format
+
+
+            The generated test cases MUST follow the structure below.
+
+
+            ## Test Case Fields
+
+
+            Each test case must contain the following fields:
+
+
+            ### 1. ID
+
+            - Unique identifier of the test case.
+
+            - Format: `[UC-ID]-TC-[number]`
+
+            - Example: `[UC20]-TC-001`
+
+            - The number must be sequential.
+
+
+            ### 2. Test Case Title
+
+            - Short and clear description of what is being verified.
+
+            - Should describe one test objective.
+
+            - Prefer the format: "Verify + expected behavior/condition".
+
+
+            ### 3. PreCondition
+
+            - Conditions that must be satisfied before executing the test case.
+
+            - Include required user role, system state, existing data, or navigation
+            state when applicable.
+
+            - Do not include test steps in this field.
+
+
+            ### 4. Test Case Description
+
+            - Describe the test execution steps.
+
+            - Steps must be numbered sequentially.
+
+            - Each step should contain one clear action.
+
+            - Include test data when required.
+
+            - Do not put expected results in the test steps.
+
+
+            ### 5. Expected Output
+
+            - Describe the expected system behavior after executing the test steps.
+
+            - Expected results must be specific, observable, and traceable to the
+            requirement or business rule.
+
+            - Do not introduce behavior that is not supported by the Use Case.
+
+
+            ## Execution Fields
+
+
+            The following fields are reserved for Test Execution and MUST remain empty
+            during Test Case Generation:
+
+
+            ### 6. Result
+
+            Possible values:
+
+            - Passed
+
+            - Failed
+
+            - N/A
+
+            - Untested
+
+
+            Default value for newly generated test cases:
+
+            `Untested`
+
+
+            ### 7. Test date
+
+            - Leave empty during Test Case Generation.
+
+            - Filled in during Manual Test Execution.
+
+
+            ### 8. Note
+
+            - Leave empty unless there is a known note or reference.
+
+            - Bug IDs may be added during Test Execution when a test case fails.
+
+
+            ## Output Format
+
+
+            For every test case, use the following structure:
+
+
+            | ID | Test Case Title | PreCondition | Test Case Description | Expected
+            Output | Result | Test date | Note |
+
+            |---|---|---|---|---|---|---|---|
+
+            | [UC-ID]-TC-001 | ... | ... | 1. ...<br>2. ... | ... | Untested | | |
+
+
+            ## Generation Rules
+
+
+            1. Generate test cases based only on the provided Use Case, Business Rules,
+            Risk Analysis, and Test Conditions.
+
+            2. Do not invent requirements or business rules.
+
+            3. Each test case must have a single clear test objective.
+
+            4. Every test condition must be covered by at least one test case.
+
+            5. Include positive and negative cases when supported by the requirements.
+
+            6. Avoid duplicate test cases.
+
+            7. Keep test cases independent where possible.
+
+            8. Use clear, executable test steps.
+
+            9. Expected Output must be objectively verifiable.
+
+            10. Follow the exact field structure above.'
+          hint: ''
+          label: tc_format
+          max_length: null
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: tc_format
+      height: 160
+      id: '1786347514076'
+      position:
+        x: 0
+        y: 0
+      positionAbsolute:
+        x: 0
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: 'Bạn là Senior Test Analyst rà soát chất lượng tài liệu đặc tả.
+
+
+              MỤC TIÊU: Tìm TẤT CẢ điểm mơ hồ, thiếu, mẫu thuẫn trong Use Case.
+
+
+              CÁCH LÀM (bạn tự quyết số vòng lặp):
+
+              - Vòng 1: Đọc tổng thể, liệt kê nghi vấn ban đầu.
+
+              - Vòng sau: Với MỖI nghi vấn, đối chiếu lại các phần khác của tài liệu
+              để xác nhận đó có thật sự là vấn đề không.
+
+              - Chú ý mâu thuẫn giữa các phần XA NHAU (Activity Flow nói một đằng,
+              Business Rule nói một nẻo).
+
+              - Dừng khi không tìm được vấn đề mới.
+
+
+              PHÂN LOẠI 4 nhóm:
+
+              AMBIGUOUS - mô tả hiểu được nhiều cách
+
+              MISSING - thiếu thông tin cần để viết test case
+
+              CONFLICTING - mâu thuẫn giữa các phần
+
+              ASSUMPTION - đang ngầm giả định, chưa nói rõ
+
+
+              RÀNG BUỘC:
+
+              - CHỈ dựa trên tài liệu, KHÔNG suy đoán về hệ thống thật.
+
+              - Mỗi vấn đề phải TRÍCH DẪN nguyên văn đoạn có vấn đề.
+
+              - Nhóm nào không có vấn đề --> ghi "Khong phat hien".
+
+              - TUYỆT ĐỐI không bịa cho đủ số lượng.
+
+
+              OUTPUT (bảng markdown):
+
+              | # | Loai | Vi tri | Trich dan | Vi sao la van de | Cau hoi cho BA
+              |'
+          maximum_iterations:
+            type: constant
+            value: 5
+          model:
+            type: constant
+            value:
+              completion_params:
+                max_tokens: 3000
+                temperature: 0.3
+              mode: chat
+              model: gpt-4.1
+              model_type: llm
+              provider: langgenius/openai/openai
+              type: model-selector
+          query:
+            type: constant
+            value: 'Rà soát Use Case sau:
+
+
+              {{#1786347514076.uc_document#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: A tool for getting the current time.
+              parameters: {}
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings:
+                format:
+                  value:
+                    type: mixed
+                    value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value:
+                    type: constant
+                    value: Asia/Ho_Chi_Minh
+              tool_description: A tool for getting the current time.
+              tool_label: Current Time
+              tool_name: current_time
+              type: builtin
+        agent_strategy_label: ReAct
+        agent_strategy_name: ReAct
+        agent_strategy_provider_name: langgenius/agent/agent
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: {}
+        plugin_unique_identifier: langgenius/agent:0.0.42@b7dfdf1acf8a99a33ebb21e7cf5fe6842b5055a5d0264180f167202ea04b54a0
+        selected: false
+        title: Agent
+        tool_node_version: '2'
+        type: agent
+      height: 187
+      id: '1786371277953'
+      position:
+        x: 342
+        y: 13.166666666666671
+      positionAbsolute:
+        x: 342
+        y: 13.166666666666671
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 2500
+            temperature: 0.2
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: f5b5cf45-1b22-464e-8126-efb47f0a0220
+          role: system
+          text: 'Bạn là Senior Test Analyst chuyên Risk-Based Testing.
+
+
+            NHIỆM VỤ:
+
+            PHẦN A - Liệt kê Business Rules, phân loại:
+
+            Functional | Validation | Constraint | Dependency | Hidden
+
+            Mỗi rule ghi: ID | Loại | Mô tả | Trace về step/AC nào
+
+
+            PHẦN B - Với mỗi AC và BR, đánh giá rủi ro:
+
+            - Likelihood (High/Medium/Low): khả năng khâu này bị lỗi
+
+            - Impact (High/Medium/Low): mức nghiêm trọng nếu lỗi
+
+            - Risk Level: cả hai cao --> High; cả hai thấp --> Low; còn lại Medium
+
+            - BẮT BUỘC ghi LÝ DO đánh giá
+
+
+            RÀNG BUỘC:
+
+            - Rule nào là SUY LUẬN của bạn --> đánh dấu [SUY LUẬN]
+
+            - KHÔNG bịa rule không có căn cứ trong tài liệu
+
+            - Điểm mơ hồ đã phát hiện --> coi là yếu tố TĂNG Likelihood
+
+
+            OUTPUT: 2 bảng markdown riêng cho phần A và B'
+        - id: 1572571c-6ef7-43fb-93c6-df24fd452a16
+          role: user
+          text: 'TÀI LIỆU UC:
+
+            {{#1786347514076.uc_document#}}
+
+
+            ĐIỂM MƠ HỒ ĐÃ PHÁT HIỆN:
+
+            {{#1786371277953.text#}}'
+        selected: false
+        title: LLM - Phân tích Business Rules + Risk
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786415067809'
+      position:
+        x: 644
+        y: 13.166666666666671
+      positionAbsolute:
+        x: 644
+        y: 13.166666666666671
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: e678569c-95d3-460e-87c0-f9177fbd4edf
+            value: Risk Level
+            varType: string
+            variable_selector:
+            - '1786415067809'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 147
+      id: '1786422229110'
+      position:
+        x: 946
+        y: 13.166666666666671
+      positionAbsolute:
+        x: 946
+        y: 13.166666666666671
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 3500
+            temperature: 0.3
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 3f9cdb78-f8e6-4c57-af7c-636ba4f1f6f5
+          role: system
+          text: 'Bạn là Senior Test Analyst thiết kế Test Conditions theo chuẩn ISTQB.
+
+
+            ĐỊNH NGHĨA: Test Condition là ĐIỀU KIỆN CẦN KIỂM TRA, chưa phải test case.
+
+            KHÔNG viết steps chi tiết ở bước này.
+
+
+            QUY TẮC BẮT BUỘC:
+
+            1. MỖI Acceptance Criteria có TỐI THIỂU 2 test condition.
+
+            2. Rule có nhiều nhánh --> MỖI NHÁNH một condition riêng.
+
+            3. Phải có cả hướng positive và negative.
+
+            4. MỖI condition ghi trace về AC/BR nào.
+
+            5. Kế thừa risk_level từ AC/BR tương ứng.
+
+
+            RÀNG BUỘC: KHÔNG sinh condition cho chức năng không có trong UC.
+
+
+            OUTPUT (bảng markdown):
+
+            | Cond ID | Mo ta dieu kien | Loai (Pos/Neg) | Trace | Risk Level |'
+        - id: 15db452d-0585-4e8b-9a91-4f9602ecf0a7
+          role: user
+          text: 'TÀI LIỆU UC:
+
+            {{#1786347514076.uc_document#}}
+
+
+            BUSINESS RULES + RISK:
+
+            {{#1786415067809.text#}}'
+        selected: false
+        title: LLM - Sinh Test Conditions
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786434145355'
+      position:
+        x: 1248
+        y: 13.166666666666671
+      positionAbsolute:
+        x: 1248
+        y: 13.166666666666671
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1786436728064'
+          - output
+          value_type: string
+          variable: error_message
+        selected: false
+        title: End
+        type: end
+      height: 88
+      id: '1786435481625'
+      position:
+        x: 1575.3809523809525
+        y: 233.21428571428575
+      positionAbsolute:
+        x: 1575.3809523809525
+        y: 233.21428571428575
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        selected: false
+        template: '{{ "Node 3 không sinh được bảng risk, kiểm lại UC" }}'
+        title: Template - Error Message
+        type: template-transform
+        variables: []
+      height: 51
+      id: '1786436728064'
+      position:
+        x: 1248
+        y: 139.16666666666669
+      positionAbsolute:
+        x: 1248
+        y: 139.16666666666669
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 8000
+            temperature: 0.2
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: d985a98e-9898-40af-af3d-e8c6076e5c12
+          role: system
+          text: 'Bạn là Senior Test Analyst viết Test Case theo chuẩn ISTQB.
+
+
+            QUY TẮC GÁN PRIORITY (BẮT BUỘC dựa risk, KHÔNG cảm tính):
+
+            - P0: risk High VÀ thuộc luồng chính
+
+            - P1: risk High hoặc Medium
+
+            - P2: risk Medium hoặc Low
+
+            - P3: risk Low, trường hợp hiếm
+
+            Mỗi test case PHẢI ghi ly do gán priority.
+
+
+            QUY TẮC VIẾT:
+
+            1. MỖI condition sinh tối thiểu 1 test case.
+
+            2. Expected Result phải ĐO ĐƯỢC.
+
+            - SAI: "he thong hoat dong dung"
+
+            - DUNG: "hien thi thong bao MSG2 va giu nguyen trang"
+
+            3. Steps cụ thể, người khác đọc là thực hiện được.
+
+            4. MỖI test case BẮT BUỘC có trường Source (trace về Cond + AC/BR).
+
+
+            RÀNG BUỘC:
+
+            - KHÔNG sinh test case cho chức năng không có trong UC.
+
+            - KHÔNG bịa business rule mới.
+
+
+            FORMAT ĐẦU RA: Theo đúng template được cung cấp.'
+        - id: 10442898-318f-49ac-9321-d530eaa2ef5c
+          role: user
+          text: 'MÃ UC: {{#1786347514076.uc_id#}}
+
+
+            FORMAT TEST CASE CHUẨN (bắt buộc tuân theo):
+
+            {{#1786347514076.tc_format#}}
+
+
+            TEST CONDITIONS:
+
+            {{#1786434145355.text#}}
+
+
+            TÀI LIỆU UC (để đối chiếu):
+
+            {{#1786347514076.uc_document#}}'
+        selected: false
+        title: LLM - Sinh Test Cases + Priority
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786439985625'
+      position:
+        x: 1541.7242292046915
+        y: -89.68934178931201
+      positionAbsolute:
+        x: 1541.7242292046915
+        y: -89.68934178931201
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 2500
+            temperature: 0.3
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 16f3f782-49bf-45e3-a91d-e63dda9a13ca
+          role: system
+          text: 'Bạn đóng vai REVIEWER KHẮT KHE, soi lại bộ test case vừa được tạo.
+
+            Hãy HOÀI NGHI, đừng bảo vệ output.
+
+
+            KIỂM TRA 5 NHÓM VẤN ĐỀ:
+
+            1. HALLUCINATION - có test case nào cho chức năng KHÔNG có trong UC?
+
+            2. TRACEABILITY  - test case nào thiếu/sai trường Source?
+
+            3. COVERAGE      - AC/BR nào CHƯA có test case nào?
+
+            4. PRIORITY      - priority nào gán không hợp lý so với risk?
+
+            5. QUALITY       - Expected Result nào CHƯA ĐO ĐƯỢC?
+
+
+            Với mỗi vấn đề: nêu ID cụ thể + giải thích + đề xuất sửa.
+
+            Nhóm nào không có vấn đề -> ghi "Khong phat hien van de".
+
+            TUYỆT ĐỐI không bịa vấn đề cho đủ số lượng.
+
+
+            CUỐI CÙNG:
+
+            - Bảng Traceability: | AC/BR | Test Case ID | COVERED hay GAP |
+
+            - Tự chấm 1-10 cho chất lượng bộ test case
+
+            - Nêu 3 vấn đề nghiêm trọng nhất'
+        - id: c8a8df38-aad8-4288-bba7-9e6aa9b8d222
+          role: user
+          text: 'BỘ TEST CASE CẦN REVIEW:
+
+            {{#1786439985625.text#}}
+
+
+            TÀI LIỆU UC GỐC (để đối chiếu):
+
+            {{#1786347514076.uc_document#}}'
+        selected: false
+        title: LLM - AI Self Review
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786505361137'
+      position:
+        x: 1846.0887351462081
+        y: -181.9050735084653
+      positionAbsolute:
+        x: 1846.0887351462081
+        y: -181.9050735084653
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        selected: false
+        template: "# TEST CASE DOCUMENT - {{ uc_id }}\r\n\r\n## 1. DANH SACH TEST\
+          \ CASE\r\n{{ testcases }}\r\n\r\n## 2. AI SELF-REVIEW REPORT\r\n{{ selfreview\
+          \ }}\r\n\r\n## 3. PHAN TICH BUSINESS RULES & RISK\r\n{{ risk }}\r\n\r\n\
+          ---\r\n> Nguoi review: __________   Ngay: __________\r\n> Trang thai: [\
+          \ ] Approved   [ ] Can sua"
+        title: Template - Ghép thành file Markdown
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1786347514076'
+          - uc_id
+          value_type: string
+          variable: uc_id
+        - value_selector:
+          - '1786439985625'
+          - text
+          value_type: string
+          variable: testcases
+        - value_selector:
+          - '1786505361137'
+          - text
+          value_type: string
+          variable: selfreview
+        - value_selector:
+          - '1786415067809'
+          - text
+          value_type: string
+          variable: risk
+      height: 51
+      id: '1786505995447'
+      position:
+        x: 2169.3692886198587
+        y: -315.4996592041618
+      positionAbsolute:
+        x: 2169.3692886198587
+        y: -315.4996592041618
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1786505995447'
+          - output
+          value_type: string
+          variable: test_case_file
+        - value_selector:
+          - '1786371277953'
+          - text
+          value_type: string
+          variable: ambiguity_report
+        selected: false
+        title: End - Xuất kết quả
+        type: end
+      height: 114
+      id: '1786506667191'
+      position:
+        x: 2467.8225297075837
+        y: -45.94598187125216
+      positionAbsolute:
+        x: 2467.8225297075837
+        y: -45.94598187125216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: -572.1074624105772
+      y: 423.69416055025283
+      zoom: 0.7061540300396985
+  rag_pipeline_variables: []
