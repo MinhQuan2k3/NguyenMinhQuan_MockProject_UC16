@@ -36,7 +36,6 @@
 | TC16-08 | P2 | **Pass** | | screenshot_08.png | Lọc danh sách theo khoảng thời gian/ngày đúng |
 | TC16-17 | P2 | **Fail** | BUG-001 | Screenshot_17 (1).png | Không có cột "Result" độc lập, chỉ thấy "Passed"/"Failed" gộp trong Status, không có N/A |
 | TC16-22 | P2 | **Fail** | BUG-001 | screenshot_22.png | Không có cột "Result" để kiểm tra giá trị khi Status = Cancelled |
-| TC16-Job | — | Chưa chạy | | — | BLOCKED sẵn — thiếu field spec (không tính là Pass) |
 
 
 ## Bảng tổng hợp
